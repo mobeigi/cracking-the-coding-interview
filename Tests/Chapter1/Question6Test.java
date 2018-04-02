@@ -1,9 +1,9 @@
-package Tests.Chapter1;
+package Chapter1;
 
 import Chapter1.Question6;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Question6Test {
 

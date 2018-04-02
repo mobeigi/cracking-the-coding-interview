@@ -1,14 +1,18 @@
 package Chapter1;
 
-import java.awt.*;
-
 public class Question6 {
 
     /**
-     * Implement a method to perform basic string compression using the counts of repeated characters.
+     * String Compression
+     *
+     * @implSpec Implement a method to perform basic string compression using the counts of repeated characters.
      * For example, the string aabcccccaaa would become a2b1c5a3. If the "compressed" string would not
      * become smaller than the original string, your method should return the original string.
      * You can assume the string has only uppercase and lowercase letters (a - z).
+     *
+     * @implNote Iterate from start of string until a new character is encountered, then simply add the previous
+     * character and count to a string builder. Then return either original string or compressed string
+     * (whichever is shortest).
      *
      * Time Complexity: O(N)
      * Space Complexity: O(N)
@@ -20,26 +24,23 @@ public class Question6 {
         if (s.isEmpty())
             return s;
 
-        StringBuilder res = new StringBuilder();
-        Character c = s.charAt(0);
-        int i = 0, lastIndex = 0; //current and last index
+        StringBuilder compressedString = new StringBuilder();
+        int count = 0; //current and last index
 
         //Iterate until new character or end of string reached
-        for (; i < s.length(); ++i) {
+        for (int i = 0; i < s.length(); ++i) {
+            Character c = s.charAt(i);
+            ++count;
+
             //Add last segment to result string
-            if (c != s.charAt(i)) {
-                res.append(c);
-                res.append(i-lastIndex);
-                c = s.charAt(i);
-                lastIndex = i;
+            if (i+1 >= s.length() || c != s.charAt(i+1)) {
+                compressedString.append(c);
+                compressedString.append(count);
+                count = 0;
             }
         }
 
-        //Process final loop
-        res.append(c);
-        res.append(i-lastIndex);
-
         //Return shortest string
-        return (s.length() < res.length()) ? s : res.toString();
+        return (s.length() < compressedString.length()) ? s : compressedString.toString();
     }
 }

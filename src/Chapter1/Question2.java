@@ -1,16 +1,19 @@
 package Chapter1;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 
 public class Question2 {
 
     /**
-     * Given two strings, decide if one is a permutation of the other.
+     * Check Permutation
+     *
+     * @implSpec Given two strings, write a method to decide if one is a permutation of the other.
+     *
+     * @implNote Sort both strings as arrays in N LOG N time and then compare them in N time.
      *
      * Time Complexity: O(N LOG N)
-     * Space Complexity: O(N)
+     * Space Complexity: O(N) {N+N to store both strings as arrays}
      *
      * @param s1 string 1
      * @param s2 string 2
@@ -32,9 +35,14 @@ public class Question2 {
     }
 
     /**
-     * Given two strings, decide if one is a permutation of the other.
+     * Check Permutation
      *
-     * Time Complexity: O(N)
+     * @implSpec Given two strings, write a method to decide if one is a permutation of the other.
+     *
+     * @implNote Store a count for each character, adding +1 if found in s1 and -1 if found in s2.
+     * Tally should be 0 for all characters if strings are valid permutations.
+     *
+     * Time Complexity: O(N) { N first iteration to tally and N second iteration to check hashmap}
      * Space Complexity: O(N)
      *
      * @param s1 string 1

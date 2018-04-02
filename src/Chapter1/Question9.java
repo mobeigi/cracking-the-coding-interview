@@ -3,11 +3,17 @@ package Chapter1;
 public class Question9 {
 
     /**
-     * Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring
-     * (e.g., "waterbottle" is a rotation of"erbottlewat").
+     * String Rotation
+     *
+     * @implSpec Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call
+     * to isSubstring (e.g., "waterbottle" is a rotation of"erbottlewat").
+     *
+     * @implNote Concatenate the original string twice to produce a string which contains all possible rotations.
+     * Then if our input string is a substring of this resultant string, it is a valid rotation.
+     *
      *
      * Time Complexity: O(N)
-     * Space Complexity: O(N)
+     * Space Complexity: O(N) {string of 2N size is created and passed to isSubString}
      *
      * @param s1 original string
      * @param s2 rotated string to check
@@ -18,11 +24,11 @@ public class Question9 {
             return false;
 
         //concatenating original string twice produces string which contains all possible rotations
-        return isSubString(s2, s1+s1);
+        return isSubString(s2, s1+s1); //alternatively: (s1+s1).contains(s2)
     }
 
     /**
-     * Checks if one word is a substring of another.
+     * Helper: Is Substring
      *
      * Time Complexity: O(N)
      * Space Complexity: O(1)

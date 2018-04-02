@@ -1,9 +1,10 @@
-package Tests.Chapter1;
+package Chapter1;
 
 import Chapter1.Question1;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class Question1Test {
 
@@ -37,5 +38,21 @@ class Question1Test {
         assertFalse(Question1.isUnique2("abccba"));
         assertFalse(Question1.isUnique2("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZa"));
         assertFalse(Question1.isUnique2("abcdefghijklmnopqrstuvwxyzaABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+    }
+
+    @Test
+    void isUnique3() {
+        assertTrue(Question1.isUnique3(""));
+        assertTrue(Question1.isUnique3("a"));
+        assertTrue(Question1.isUnique3("9"));
+        assertTrue(Question1.isUnique3("ab"));
+        assertTrue(Question1.isUnique3("abc"));
+        assertTrue(Question1.isUnique3("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+        assertTrue(Question1.isUnique3("@"));
+        assertTrue(Question1.isUnique3("!@#$%^&*()"));
+        assertFalse(Question1.isUnique3("aa"));
+        assertFalse(Question1.isUnique3("abccba"));
+        assertFalse(Question1.isUnique3("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZa"));
+        assertFalse(Question1.isUnique3("abcdefghijklmnopqrstuvwxyzaABCDEFGHIJKLMNOPQRSTUVWXYZ"));
     }
 }

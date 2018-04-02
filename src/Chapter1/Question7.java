@@ -1,21 +1,24 @@
 package Chapter1;
 
-import java.util.Arrays;
-
 public class Question7 {
 
     /**
-     * Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes,
+     * Rotate Matrix
+     *
+     * @implSpec Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes,
      * write a method to rotate the image by 90 degrees.
      *
-     * Time Complexity: O(N^2)
-     * Space Complexity: O(N)
+     * @implNote Naive approach. Create new matrix and set each element individually. High space cost.
      *
-     * @param matrix input matrix
+     * Time Complexity: O(N^2)
+     * Space Complexity: O(N^2)
+     *
+     * @param matrix matrix input matrix
+     * @param <T> Type for value in matrix
      * @return matrix rotated 90 degrees clockwise
      */
-    public static int[][] rotateMatrix(int[][] matrix) {
-        int[][] rotatedMatrix = new int[matrix.length][matrix[0].length];
+    public static <T> T[][] rotateMatrix(T[][] matrix) {
+        T[][] rotatedMatrix = (T[][])new Object[matrix.length][matrix[0].length];
 
         for (int i = 0; i < matrix.length; ++i) {
             for (int j = 0; j < matrix[i].length; ++j) {
@@ -27,18 +30,22 @@ public class Question7 {
     }
 
     /**
-     * Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes,
+     * Rotate Matrix [EXTERNAL]
+     *
+     * @implSpec Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes,
      * write a method to rotate the image by 90 degrees.
      *
-     * In place approach.
+     * @implNote In place approach. Iterate for each layer (outer shell) that exists.
+     * Rotate each layer, moving each corresponding piece in the 'row' (4 assignments every time)
      *
      * Time Complexity: O(N^2)
      * Space Complexity: O(1)
      *
-     * @param matrix input matrix
+     * @param matrix matrix input matrix
+     * @param <T> Type for value in matrix
      * @return matrix rotated 90 degrees clockwise
      */
-    public static int[][] rotateMatrix2(int[][] matrix) {
+    public static <T> T[][] rotateMatrix2(T[][] matrix) {
 
         //Matrix length/2 layers exits (outer shells)
         for (int layer = 0; layer < matrix.length/2; ++layer) {
@@ -49,7 +56,7 @@ public class Question7 {
             for (int i = start; i < end; ++i) {
                 int offset = i - start;
                 int j = end - offset;
-                int temp = matrix[start][i];
+                T temp = matrix[start][i];
 
                 //top left = bottom left
                 matrix[start][i] = matrix[j][start];

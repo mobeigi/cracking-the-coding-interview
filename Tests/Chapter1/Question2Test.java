@@ -1,9 +1,10 @@
-package Tests.Chapter1;
+package Chapter1;
 
 import Chapter1.Question2;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class Question2Test {
 
