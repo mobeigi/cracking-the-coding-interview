@@ -20,5 +20,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="org.junit.jupiter:junit-jupiter-params:5.1.0" level="project" />
   </component>
 </module>
